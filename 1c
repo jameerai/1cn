@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+
+int main() {
+    int network[3][3] = {
+        {1, 1, 1},
+        {1, 1, 1},
+        {1, 1, 1}
+    };
+    int i, j;
+
+    printf("LAN Connectivity Matrix:\n");
+
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++)
+            printf("%d ", network[i][j]);
+        printf("\n");
+    }
+
+    printf("\nConnectivity Status:\n");
+
+    for (i = 0; i < 3; i++) {
+        for (j = i + 1; j < 3; j++) {
+            if (network[i][j])
+                printf("PC%d <--> PC%d: Connected\n",
+                       i + 1, j + 1);
+            else
+                printf("PC%d <--> PC%d: Not Connected\n",
+                       i + 1, j + 1);
+        }
+    }
+
+    return 0;
+}
